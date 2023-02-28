@@ -10,6 +10,8 @@ pipeline{
 				sh "yum install git -y"
 				sh "yum install docker -y"
 				sh "systemctl start docker"
+				sh "docker stop 23q1 23q2 23q3"
+				sh "docker system prune -a -f"
 				sh "rm -rf /mnt/project/*"
 				dir("/mnt/project/23Q1"){
 					sh "git clone https://github.com/git-kaustubh/assignment-1.git -b 23Q1"
